@@ -1,17 +1,8 @@
 import requests
-
-# from mytextsfunc import cut_text
 from django.conf import settings
 from .mytextsfunc import cut_text, correct_vk_link
 from datetime import datetime
-from django.db import connection
-
-
-# from mytimefunc import get_localtime_posix_intervals
 from .mytimefunc import get_localtime_posix_intervals
-
-# from time import sleep
-
 import pytz
 
 API_KEY = settings.API_KEY
@@ -22,7 +13,6 @@ class WallPost:
         self.text = text
         self.comments_count = comments_count
         self.date = date
-
 
 class Result_row:
     def __init__(
@@ -53,10 +43,6 @@ class Result_row:
         self.parentpost_link = parentpost_link
         self.likescount = likescount
 
-
-# sleeptime = 0.05
-
-
 def execute_comments_colletion(
     request_adress: str,
     posts_count=3,
@@ -67,8 +53,8 @@ def execute_comments_colletion(
     request_start_date=None,
 ):
     """
-    Помещает комментарии из группы с адресом request_adress в БД,
-    а именно в строки Result_row. Кол-во постов для считывания
+    Возвращает комментарии из группы с адресом request_adress
+    в виде массива из Result_row. Кол-во постов для считывания
     комменатриев posts_count, смещение от самого нового поста
     в группе posts_offset.
     request_mode=0 - по количеству запросов,
@@ -144,7 +130,7 @@ def execute_comments_colletion(
 def get_group_id(group_address: str):
     """
     Возвращает id группы по её адресу. Минус в начале - если группа,
-    без минуса - пользователь
+    без минуса - пользователь. None при любой ошибке
     """
     url = "https://api.vk.com/method/utils.resolveScreenName"
     params = {
@@ -221,7 +207,6 @@ def get_comments(
         "v": 5.131,
     }
     res = requests.get(url, params=params)
-    # sleep(sleeptime) #Чтобы не превысить количество запросов в секунду (API VK ограничение)
     res_json = res.json()
     all_comments_list = []
 
@@ -288,7 +273,6 @@ def parse_comment(comment_json, group_id, post, client_timezone):
     Принимает комментарий в формате json, обрабатывает,
     расскладывает по полям, и отдаёт объект класса Result_row
     """
-
     result = Result_row(
         pk=0,
         date=datetime.fromtimestamp(
