@@ -1,0 +1,53 @@
+<!-- templates/grabber/results.html -->
+
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+
+<p>Результаты для запрошенного адреса {{ request_adress }}. Всего комментариев получено: {{ comments_count }}</p>
+<!-- <table class="tableresult">
+	<tr>
+		<td>Дата</td>
+		<td>Автор</td>
+		<td>Комментарий</td>
+		<td>К записи</td>
+		<td>Количество лайков</td>
+	</tr>
+	<tr>
+		<td>19.08.2021 10:01</td>
+		<td><a href="https://vk.com/surgefro">Владимир Назаров</a></td>
+		<td>Когда на каком либо крупном семейном Празднике тебя заставляют играть с детьми родни</td>
+		<td><a href="https://vk.com/wall-177213146_246737">Цель обнаружена… (id 177213146_246737)</a></td>
+		<td>42</td>
+	</tr>
+</table> -->
+
+<table class="tableresult">
+	<tr>
+		<td>№</td>
+		<td>Дата</td>
+		<td>Автор</td>
+		<td>Комментарий</td>
+		<td>К записи</td>
+		<td>Лайков</td>
+	</tr>
+	{% for cur_comment in object_list %}
+	<tr>
+		<td>{{ cur_comment.pk }}</td>
+		<td>{{ cur_comment.date }}</td>
+		<td>
+			<div class="author_name_cell">
+				<img src="{{ cur_comment.author_avatar }}">
+				<a href="{{ cur_comment.author_link }}">{{ cur_comment.author_name }}</a></td>
+			</div>
+		<td><a href="{{ cur_comment.comment_link }}">{{ cur_comment.comment_text}}</a></td>
+		<td><a href="{{ cur_comment.parentpost_link }}"> {{ cur_comment.parentpost_text}}</a></td>
+		<td>{{ cur_comment.likescount}}</td>
+	</tr>
+	{% endfor %}
+</table>
+
+
+{% endblock content %}

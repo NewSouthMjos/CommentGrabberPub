@@ -1,0 +1,188 @@
+/* static/css/base.css */
+a {
+	color: hsl(210, 52%, 34%);
+	text-decoration: none;
+}
+
+.author_name_cell {
+	margin-left: 44px;
+}
+
+input {
+	background-color: hsl(212, 100%, 99%);
+	border-radius: 2px;
+}
+
+img {
+	border-radius: 50%;
+	width: 34px;
+    height: 34px;
+	align:left;
+    /* vertical-align: top; */
+	border: 0;
+	float: left;
+	margin-left: -44px;
+	margin-top: 1px;
+}
+
+.main {
+	background-color: hsl(0, 0%, 100%);
+	padding: 15px;
+	/* margin: 15px; */
+	margin-top: 0px;
+	border: 1px solid hsl(224, 40%, 60%);
+	border-radius: 3px;
+	width: 1000px;
+	color: black;
+	line-height: 1.5;
+    font-family: -apple-system,BlinkMacSystemFont,'Roboto','Helvetica Neue',Geneva,"Noto Sans Armenian","Noto Sans Bengali","Noto Sans Cherokee","Noto Sans Devanagari","Noto Sans Ethiopic","Noto Sans Georgian","Noto Sans Hebrew","Noto Sans Kannada","Noto Sans Khmer","Noto Sans Lao","Noto Sans Osmanya","Noto Sans Tamil","Noto Sans Telugu","Noto Sans Thai",sans-serif,arial,Tahoma,verdana;
+	-webkit-font-smoothing: subpixel-antialiased;
+	font-weight: 400;
+	font-size: 18px;
+	
+}
+
+.main {
+	/* min-height: 3000px; */
+}
+
+.inputform {
+	background-color: hsl(212, 100%, 96%);
+	color: black;
+	border: 2px solid hsl(212, 80%, 60%);
+	border-radius: 4px;
+}
+
+.button {
+	background-color: hsl(212, 10%, 52%);
+	padding: 10px; 
+	margin: 10px;
+	border: 1px solid hsl(212, 10%, 52%);
+	border-radius: 5px;
+	width: 200px;
+	color: white;
+	/* box-shadow: 1px 1px 4px #000000 */
+	transition: all .3s;
+	text-decoration: none;
+}
+
+.button:disabled {
+	background-color: hsl(212, 42%, 52%);
+	border: 1px solid hsl(212, 42%, 52%);
+}
+
+#collect_button {
+	background-color: hsl(212, 42%, 52%);
+	padding: 20px; 
+	margin: 15px;
+	border: 1px solid hsl(212, 42%, 52%);
+	border-radius: 5px;
+	width: 420px;
+	color: white;
+	/* box-shadow: 1px 1px 4px #000000 */
+	transition: all .3s;
+	text-decoration: none;
+}
+
+.button:hover {
+	background-color: hsl(212, 42%, 58%);
+}
+
+#collect_button:hover {
+	background-color: hsl(212, 42%, 58%);
+}
+
+
+.animate_button {
+  animation-duration: 2s;
+  animation-name: changeColor;
+  animation-iteration-count: infinite;
+  animation-timing-function: liner;
+}
+
+@keyframes changeColor {
+  0% {
+    background-color: hsl(212, 42%, 52%);
+  }
+  50% {
+	background-color: hsl(212, 42%, 35%); 
+  }
+  100% {
+    background-color: hsl(212, 42%, 52%));
+  }
+}
+
+
+
+
+.tablehead {
+	width: 100%;
+/* 	background-color: hsl(120, 40%, 60%); */
+	border-spacing: 0;
+	
+}
+
+.tableresult {
+	border-collapse: separate;
+	border-spacing: 0;
+	font-size: 13px;
+	width: 100%;
+	word-break: break-word;
+}
+
+.tableresult tr:first-child {
+	background-color: hsl(212, 42%, 52%);
+	color: white;
+	font-size: 18px;
+}
+
+.tableresult td{
+	padding: 5px;
+	text-align: center;
+	border: 1px solid hsl(212, 42%, 52%);
+}
+ 
+.tableresult td:nth-child(1n){
+	width: 5%;
+}
+
+.tableresult td:nth-child(2n){
+	width: 10%;
+}
+
+.tableresult td:nth-child(3n){
+	width: 15%;
+}
+.tableresult td:nth-child(4n){
+	text-align: justify;
+	width: 45%;
+}
+.tableresult td:nth-child(5n){
+	width: 15%;
+}
+.tableresult td:nth-child(6n){
+	width: 10%;
+}
+
+/* закругления таблицы результатов */
+
+.tableresult tr:first-child td:first-child {
+border-top-left-radius: 10px;
+}
+.tableresult tr:first-child td:last-child {
+border-top-right-radius: 10px;
+}
+
+.tableresult tr:last-child td:first-child {
+border-bottom-left-radius: 10px;
+}
+.tableresult tr:last-child td:last-child {
+border-bottom-right-radius: 10px;
+} 
+
+
+
+body {
+	background-color: hsl(220, 9%, 94%);
+}
+

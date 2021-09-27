@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+<p>Сервис позволяет получить комментарии с записей на стене определённого сообщества или пользователя vk.com</p>
+<form action="results" onsubmit="showload()" method="GET">
+<!-- {% csrf_token %} -->
+<div class="inputform">
+	{{ form.non_field_errors }}
+	
+	{% for field in form %}
+		{% for error in field.errors %}
+			<p><strong>{{ error }}</strong></p>
+		{% endfor %}
+	{% endfor %}
+	
+
+	<p>Ссылка: vk.com/{{ form.request_adress }}</p>
+	<p>
+		<button id="by_posts_count" type="button" align="center" onclick="changemode(0) " disabled class="button">По количеству записей</button>
+		<button id="by_date" type="button" align="center" onclick="changemode(1)" class="button">По датам записей</button>
+	</p>
+	<p hidden> {{ form.client_timezone }}</p>
+	<p hidden> {{ form.request_mode }}</p>
+	<p name="posts_count">обработать {{ form.posts_count }} постов в группе</p>
+	<p name="posts_offset">пропустить первых {{ form.posts_offset }} постов в группе</p>
+	<p name="request_start_date" hidden>начиная с {{ form.request_start_date }}</p>
+	<p name="request_end_date" hidden>заканчивая {{ form.request_end_date }}</p>
+	
+</div>
+<br>
+	<button id="collect_button" type="submit" class="button" align="center">
+	Начать сбор комментариев
+	</button>
+</form>
+{% endblock content %}
